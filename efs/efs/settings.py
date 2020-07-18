@@ -26,8 +26,7 @@ SECRET_KEY = 'ky&i=u(xmf+kls)4v6zj4dy1hx@z=o1!-+6j839b^1316dzq!y'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -73,16 +72,14 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'efs.wsgi.application'
 
-
+PROJECT_PATH = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'efs',
-        'USER': 'postgres',
-        'PASSWORD': 'hello'
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(PROJECT_PATH, 'database.sqlite'),
     }
 }
 
